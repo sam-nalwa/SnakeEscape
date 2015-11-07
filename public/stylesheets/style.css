@@ -1,8 +1,18 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	color: red;
+	font-family: Tahoma;
+	font-size: 3em;
+	line-height: 1em;
+	text-shadow: 4px 4px 0 #493854;
+	display: block;
+	text-align: center;
+  /*padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 }
 
 a {
-  color: #00B7FF;
+	color: #00B7FF;
 }
+
+
+
