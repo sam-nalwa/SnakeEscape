@@ -2,12 +2,45 @@
 <html lang="en">
 
 <head>
-<title>Document Title goes here...
+	<meta charset="utf-8">
+	<title>SnakeEscape</title>
+	<link rel="stylesheet" href="../stylesheets/style.css">
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script defer type="text/javascript" src="js/jquery.js"></script>
+    <script defer type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script defer type="text/javascript" src="js/jquery.lettering.js"></script>
+	<script defer type="text/javascript" src="http://localhost:5000/socket.io/socket.io.js"></script>
+	<script defer type="text/javascript" src="js/client.js"></script>-->
 </title>
 </head>
 
 <body>
-Das it
+	<div id="title">
+		<h1><img src="../images/snakeLeft.png" height=130px></img>  SnakeEscape  <img src="../images/snakeRight.png" height=130px></img></h1>
+
+		<canvas id="board" width=900px height=500px style="border:10px solid #00000;">
+
+		</canvas>
+
+	</div>
+
+	<script>
+		var boardWidth=900;
+		var boardHeight=500;
+		var blockDimention=20;
+		var canvas = document.getElementById("board");
+    	var context = canvas.getContext('2d');
+    	context.fillStyle = '#CCC';
+		for (var i=0; i<boardWidth; i++)
+		{
+		    for (var j=0; j<boardHeight; j++)
+		    {
+		        context.fillRect(i * blockDimention, j * blockDimention, blockDimention - 1, blockDimention - 1);
+		    }
+		}
+
+	</script>
+
 </body>
 
 </html>
