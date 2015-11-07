@@ -89,6 +89,7 @@ module.exports.getRouter = function(io){
 						board[snakes[i].locs[k].x][snakes[i].locs[k].y].splice(ind,1);
 					}else{console.log("Tried to remove a non-existant block while deleting snake " + snakes[i].id);}
 				}
+				io.emit('died' + snakes[i].id,snakes[i]);
 				snakes.splice(i,1);
 			}
 		}
