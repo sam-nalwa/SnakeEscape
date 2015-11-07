@@ -7,6 +7,15 @@ module.exports.getRouter = function(io){
 	// We'll change this to whatever grid size is good.
 	var xSize = 100;
 	var ySize = 100;
+
+	var generateLoc = function(){
+		var result = {};
+		// Later we'll make it so they are far from other snakes.. for now this is okay.
+		result.x = Math.floor(Math.random() * (xSize + 1));
+		result.y = Math.floor(Math.random() * (ySize + 1));
+		return result;
+	};
+	
 	var foodLoc = generateLoc();
 
 	router.get('/', function(req, res, next) {
@@ -59,14 +68,6 @@ module.exports.getRouter = function(io){
 		}
 		io.emit('update',{snakes:snakes, foodLoc: foodLoc});
 		setTimeout(update,50);
-	};
-
-	var generateLoc = function(){
-		var result = {};
-		// Later we'll make it so they are far from other snakes.. for now this is okay.
-		var result.x = Math.floor(Math.random() * (xSize + 1));
-		var result.y = Math.floor(Math.random() * (ySize + 1));
-		return result;
 	};
 
 	var generateDir = function(){

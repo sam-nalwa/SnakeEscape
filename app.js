@@ -11,7 +11,7 @@ var routes = require('./routes/index');
 
 var app = express();
 
-var i = socket_io();
+var io = socket_io();
 app.io = io;
 // view engine setup
 app.set('views', __dirname + '/views');
