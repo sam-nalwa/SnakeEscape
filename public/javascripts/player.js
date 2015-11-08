@@ -100,7 +100,7 @@ function drawBoard(data){
 	for(i in snakes)
     {
         var snake = snakes[i];
-        console.log("Snake "+i+"'s ID is "+snake.id);
+        //console.log("Snake "+i+"'s ID is "+snake.id);
         var snakeLength = snake.locs.length;
  
         //drawing the snake
