@@ -96,7 +96,7 @@ function drawBoard(data){
 
 	//drawing the snakes
 	snakes=data.snakes;
-	snakes[1].id=1;
+	//snakes[1].id=1;
 	for(i in snakes)
     {
         var snake = snakes[i];
