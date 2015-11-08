@@ -76,15 +76,44 @@ function playerKeystroke()
     });
 }
 
-function drawBoard(snakes){
+function drawBoard(date){
 
 	context.fillStyle = '#CCC';
-		for (var i=0; i<boardWidth; i++)
-		{
-		    for (var j=0; j<boardHeight; j++)
-		    {
-		        context.fillRect(i * blockDimention, j * blockDimention, blockDimention - 1, blockDimention - 1);
-		    }
-		}
 
+	//draw the board
+	for (var i=0; i<boardWidth; i++)
+	{
+	    for (var j=0; j<boardHeight; j++)
+	    {
+	        context.fillRect(i * blockDimention, j * blockDimention, blockDimention - 1, blockDimention - 1);
+	    }
+	}
+
+/*
+	//drawing the snakes
+	for(i in date.snakes)
+    {
+        var snake = snakes[i],
+        snakeLength = snake.elements.length;
+
+        //drawing the snake
+        for (var j=0; j<snakeLength; j++)
+        {
+            var element = snake.elements[j],
+                x = element.x * blockDimention,
+                y = element.y * blockDimention;
+
+            if(snake.playerID == snakeID)
+            {
+                context.fillStyle = 'rgba(255, 0, 0)';
+            }
+
+            else
+            {
+                context.fillStyle = 'rgba(0, 0, 0)';
+            }
+            context.fillRect(x, y, blockDimention - 1, blockDimention -1);
+        }
+    }
+    */
 }
