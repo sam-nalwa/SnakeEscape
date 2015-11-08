@@ -25,7 +25,7 @@ connection.on('died'+playerID, function(data)
 $(function ()
 {
     canvas = $('#board');
-    context = canvas.getContext('2d');
+    context = canvas.get(0).getContext('2d');
     //playerJoin();
     playerKeystroke();
 
