@@ -40,9 +40,9 @@ module.exports.getRouter = function(io){
 		socket.emit('initSnake', {myid:id, snakes: snakes, foodLoc: foodLoc});
 		socket.on('disconnect',function(){
 			for (var i = 0; i < snakes.length;i++){
-				if (snakes[i].id == Id){
+				if (snakes[i].id == id){
 					snakes.splice(i,1);
-					console.log("Snake " + Id + " disconnected and removed.");
+					console.log("Snake " + id + " disconnected and removed.");
 				}
 			}
 		});
