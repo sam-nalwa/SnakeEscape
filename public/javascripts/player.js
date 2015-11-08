@@ -118,7 +118,7 @@ function drawBoard(data){
 
             else
             {
-                context.fillStyle = 'rgb(255, 255, 255)';
+                context.fillStyle = 'rgb('+Math.floor((Math.random() * 255) + 1)',0,'+Math.floor((Math.random() * 255) + 1)')';
             }
 
             context.fillRect(x, y, blockDimention - 1, blockDimention -1);
