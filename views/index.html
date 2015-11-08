@@ -8,9 +8,9 @@
     <!--<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script defer type="text/javascript" src="js/jquery.js"></script>
     <script defer type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script defer type="text/javascript" src="js/jquery.lettering.js"></script>
-	<script defer type="text/javascript" src="http://localhost:5000/socket.io/socket.io.js"></script>
-	<script defer type="text/javascript" src="js/client.js"></script>-->
+    <script defer type="text/javascript" src="js/jquery.lettering.js"></script>-->
+	<script defer type="text/javascript" src="http://localhost:1337/socket.io/socket.io.js"></script>
+	<script defer type="text/javascript" src="../javascripts/player.js"></script>
 </title>
 </head>
 
@@ -24,22 +24,6 @@
 
 	</div>
 
-	<script>
-		var boardWidth=900;
-		var boardHeight=500;
-		var blockDimention=20;
-		var canvas = document.getElementById("board");
-    	var context = canvas.getContext('2d');
-    	context.fillStyle = '#CCC';
-		for (var i=0; i<boardWidth; i++)
-		{
-		    for (var j=0; j<boardHeight; j++)
-		    {
-		        context.fillRect(i * blockDimention, j * blockDimention, blockDimention - 1, blockDimention - 1);
-		    }
-		}
-
-	</script>
 
 </body>
 
