@@ -75,7 +75,6 @@ function playerKeystroke()
 
             break;
         }
-        console.log(direction);
         connection.emit('turn', direction);
     });
 }
@@ -100,7 +99,6 @@ function drawBoard(data){
 	for(i in snakes)
     {
         var snake = snakes[i];
-        //console.log("Snake "+i+"'s ID is "+snake.id);
         var snakeLength = snake.locs.length;
  
         //drawing the snake
@@ -109,8 +107,6 @@ function drawBoard(data){
             var element = snake.locs[j],
                 x = element.x * blockDimention,
                 y = element.y * blockDimention;
-            console.log("The snake id is: " + snake.id);
-            console.log("The playerID is: " + playerID);
             if(snake.id==playerID)
             {
                 context.fillStyle = 'rgb(255, 0, 0)';
