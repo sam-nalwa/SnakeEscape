@@ -111,7 +111,7 @@ function drawBoard(data){
                 y = element.y * blockDimention;
             console.log("The snake id is: " + snake.id);
             console.log("The playerID is: " + playerID);
-            if(snake.id=playerID)
+            if(snake.id==playerID)
             {
                 context.fillStyle = 'rgb(255, 0, 0)';
             }
