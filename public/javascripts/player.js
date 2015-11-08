@@ -96,11 +96,13 @@ function drawBoard(data){
 
 	//drawing the snakes
 	snakes=data.snakes;
+	//snakes[1].id=1;
 	for(i in snakes)
     {
-        var snake = snakes[i],
-        snakeLength = snake.locs.length;
-        
+        var snake = snakes[i];
+        //console.log("Snake "+i+"'s ID is "+snake.id);
+        var snakeLength = snake.locs.length;
+ 
         //drawing the snake
         for (var j=0; j<snakeLength; j++)
         {
@@ -109,7 +111,7 @@ function drawBoard(data){
                 y = element.y * blockDimention;
             console.log("The snake id is: " + snake.id);
             console.log("The playerID is: " + playerID);
-            if(snake.id=playerID)
+            if(snake.id==playerID)
             {
                 context.fillStyle = 'rgb(255, 0, 0)';
             }
