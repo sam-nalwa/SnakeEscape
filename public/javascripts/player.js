@@ -102,7 +102,7 @@ function drawBoard(data){
         var snake = snakes[i];
         //console.log("Snake "+i+"'s ID is "+snake.id);
         var snakeLength = snake.locs.length;
- 
+ 		var randomColor='rgb('+Math.floor((Math.random() * 255) + 1)+',0,'+Math.floor((Math.random() * 255) + 1)+')'
         //drawing the snake
         for (var j=0; j<snakeLength; j++)
         {
@@ -118,7 +118,7 @@ function drawBoard(data){
 
             else
             {
-                context.fillStyle = 'rgb('+Math.floor((Math.random() * 255) + 1)+',0,'+Math.floor((Math.random() * 255) + 1)+')';
+                context.fillStyle = randomcolor;
             }
 
             context.fillRect(x, y, blockDimention - 1, blockDimention -1);
