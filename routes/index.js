@@ -18,11 +18,11 @@ module.exports.getRouter = function(io){
 
 	var foodLoc = generateLoc();
 
-	// Initializing 2d array for checking collisions
+	// Initializing 3d array for checking collisions
 	var board = [];
-	for (var i = 0; i<=ySize; i++){
+	for (var i = 0; i<xSize; i++){
 		board[i] = [];
-		for (var k = 0; k<=xSize; k++){
+		for (var k = 0; k<ySize; k++){
 			board[i][k] = [];
 		}
 	}
@@ -35,6 +35,7 @@ module.exports.getRouter = function(io){
 		console.log('a user connected');
 		var id = count++;
 		var startLoc = generateLoc();
+		// console.log(startLoc);
 		snakes[snakes.length] = {id:id, locs: [startLoc], currDir: generateDir()};
 		board[startLoc.x][startLoc.y][board[startLoc.x][startLoc.y].length] = id;
 		socket.emit('initSnake', {myid:id, snakes: snakes, foodLoc: foodLoc});
@@ -70,10 +71,15 @@ module.exports.getRouter = function(io){
 					break;
 			}
 			snakes[i].locs[snakes[i].locs.length] = newHead;
+			// console.log(board[newHead.x][newHead.y]);
+			board[newHead.x][newHead.y][board[newHead.x][newHead.y].length] = snakes[i].id; 
 			// If he just ate the food, we just dont truncate his length and then we make a new food
 			if (!(newHead.x == foodLoc.x && newHead.y == newHead.y)){
+				// console.log(snakes[i].locs);
+				// console.log(board[snakes[i].locs[0].x][snakes[i].locs[0].y]);
 				var ind = board[snakes[i].locs[0].x][snakes[i].locs[0].y].indexOf(snakes[i].id);
 				if (ind > -1){
+					// console.log("Removing from: " + board[snakes[i].locs[0].x][snakes[i].locs[0].y]);
 					board[snakes[i].locs[0].x][snakes[i].locs[0].y].splice(ind, 1);//Basically we remove the location from the list of blocks at the board location
 				}else{console.log("Tried to remove a non-existant block");}
 				snakes[i].locs.shift();//Normally we take off the end of the snake as it moves.
@@ -82,7 +88,7 @@ module.exports.getRouter = function(io){
 			}
 		}
 		for (var i = snakes.length - 1; i >= 0; i--) {
-			if (board[snakes[i].locs[snakes[i].locs.length].x][snakes[i].locs[snakes[i].locs.length].y].length > 1){
+			if (board[snakes[i].locs[snakes[i].locs.length-1].x][snakes[i].locs[snakes[i].locs.length-1].y].length > 1){
 				for (var k = 0; k < snakes[i].locs.length; k++){
 					var ind = board[snakes[i].locs[k].x][snakes[i].locs[k].y].indexOf(snakes[i].id);
 					if (ind > -1){
@@ -96,7 +102,7 @@ module.exports.getRouter = function(io){
 
 		if (fRelocNeeded){foodLoc = generateLoc();}
 		io.emit('update',{snakes:snakes, foodLoc: foodLoc});
-		setTimeout(update,50);
+		setTimeout(update,500);
 	};
 	var checkCollision = function(head){
 		for (var i = 0; i < snakes.length; i++) {
