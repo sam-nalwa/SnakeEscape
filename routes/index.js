@@ -97,7 +97,7 @@ module.exports.getRouter = function(io){
 
 		if (fRelocNeeded){foodLoc = generateLoc();}
 		io.emit('update',{snakes:snakes, foodLoc: foodLoc});
-		setTimeout(update,10);
+		setTimeout(update,100);
 	};
 	var checkCollision = function(head){
 		for (var i = 0; i < snakes.length; i++) {
