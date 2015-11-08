@@ -14,7 +14,7 @@ connection.on('initSnake', function (data)
 
 connection.on('update', function (data)
 {
-    drawBoard(data.snakes);
+    drawBoard(data);
 });
 
 connection.on('died'+playerID, function(data)
@@ -22,12 +22,16 @@ connection.on('died'+playerID, function(data)
 	console.log('dead fish');
 });
 
+
+
 $(function ()
 {
     canvas = $('#board');
     context = canvas.get(0).getContext('2d');
     //playerJoin();
+    context.fillStyle = '#CCC';
     playerKeystroke();
+
 
 });
 
@@ -76,11 +80,12 @@ function playerKeystroke()
     });
 }
 
-function drawBoard(date){
+function drawBoard(data){
+
 
 	context.fillStyle = '#CCC';
 
-	//draw the board
+	//drawing the board
 	for (var i=0; i<boardWidth; i++)
 	{
 	    for (var j=0; j<boardHeight; j++)
@@ -89,12 +94,15 @@ function drawBoard(date){
 	    }
 	}
 
-
 	//drawing the snakes
-	for(i in date.snakes)
+	snakes=data.snakes;
+	for(i in snakes)
     {
+    	console.log("we here");
         var snake = snakes[i],
         snakeLength = snake.locs.length;
+        console.log(snake);
+        console.log(snakeLength);
 
         //drawing the snake
         for (var j=0; j<snakeLength; j++)
@@ -102,16 +110,19 @@ function drawBoard(date){
             var element = snake.locs[j],
                 x = element.x * blockDimention,
                 y = element.y * blockDimention;
-
-            if(snake.playerID == snakeID)
+                console.log(x);
+                console.log(y);
+           
+            if(snake.id=1)
             {
-                context.fillStyle = 'rgba(255, 0, 0)';
+                context.fillStyle = 'rgb(255, 0, 0)';
             }
 
             else
             {
-                context.fillStyle = 'rgba(0, 0, 0)';
+                context.fillStyle = 'rgb(255, 255, 255)';
             }
+
             context.fillRect(x, y, blockDimention - 1, blockDimention -1);
         }
     }
