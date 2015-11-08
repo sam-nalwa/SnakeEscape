@@ -38,7 +38,14 @@ module.exports.getRouter = function(io){
 		snakes[snakes.length] = {id:id, locs: [startLoc], currDir: generateDir()};
 		board[startLoc.x][startLoc.y][board[startLoc.x][startLoc.y].length] = id;
 		socket.emit('initSnake', {myid:id, snakes: snakes, foodLoc: foodLoc});
-
+		socket.on('disconnect',function(){
+			for (var i = 0; i < snakes.length;i++){
+				if (snakes[i].id == Id){
+					snakes.splice(i,1);
+					console.log("Snake " + Id + " disconnected and removed.");
+				}
+			}
+		});
 		socket.on('turn', function(newDir){
 			snakes[id].currDir = newDir;
 		});
