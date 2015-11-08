@@ -89,17 +89,17 @@ function drawBoard(date){
 	    }
 	}
 
-/*
+
 	//drawing the snakes
 	for(i in date.snakes)
     {
         var snake = snakes[i],
-        snakeLength = snake.elements.length;
+        snakeLength = snake.locs.length;
 
         //drawing the snake
         for (var j=0; j<snakeLength; j++)
         {
-            var element = snake.elements[j],
+            var element = snake.locs[j],
                 x = element.x * blockDimention,
                 y = element.y * blockDimention;
 
@@ -115,5 +115,5 @@ function drawBoard(date){
             context.fillRect(x, y, blockDimention - 1, blockDimention -1);
         }
     }
-    */
+    
 }
