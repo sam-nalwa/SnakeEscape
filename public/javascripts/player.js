@@ -75,7 +75,7 @@ function playerKeystroke()
 
             break;
         }
-
+        console.log(direction);
         connection.emit('turn', direction);
     });
 }
@@ -98,20 +98,15 @@ function drawBoard(data){
 	snakes=data.snakes;
 	for(i in snakes)
     {
-    	console.log("we here");
         var snake = snakes[i],
         snakeLength = snake.locs.length;
-        console.log(snake);
-        console.log(snakeLength);
-
+        
         //drawing the snake
         for (var j=0; j<snakeLength; j++)
         {
             var element = snake.locs[j],
                 x = element.x * blockDimention,
                 y = element.y * blockDimention;
-                console.log(x);
-                console.log(y);
            
             if(snake.id=1)
             {
@@ -126,5 +121,9 @@ function drawBoard(data){
             context.fillRect(x, y, blockDimention - 1, blockDimention -1);
         }
     }
+
+    context.fillStyle = 'rgb(0, 255, 0)';
+    food=data.foodLoc;
+    context.fillRect(food.x * blockDimention, food.y *blockDimention, blockDimention - 1, blockDimention -1);
     
 }
