@@ -3,7 +3,7 @@ var boardWidth=900;
 var boardHeight=500;
 var blockDimention=20;
 
-var serverAddress='http://snakescape.azurewebsites.net:8080'
+var serverAddress='http://snakescape.azurewebsites.net:8000'
 
 connection = io.connect(serverAddress);
 connection.on('initSnake', function (data)
