@@ -96,11 +96,12 @@ function drawBoard(data){
 
 	//drawing the snakes
 	snakes=data.snakes;
+	snakes[1].id=1;
 	for(i in snakes)
     {
         var snake = snakes[i],
         snakeLength = snake.locs.length;
-        
+ 
         //drawing the snake
         for (var j=0; j<snakeLength; j++)
         {
