@@ -6,6 +6,7 @@ body {
 	text-shadow: 4px 4px 0 #493854;
 	display: block;
 	text-align: center;
+	overflow: hidden;
   /*padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 }
