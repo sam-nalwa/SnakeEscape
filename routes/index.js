@@ -47,7 +47,9 @@ module.exports.getRouter = function(io){
 			}
 		});
 		socket.on('turn', function(newDir){
-			snakes[id].currDir = newDir;
+			if (!(snakes[id] === undefined)){
+				snakes[id].currDir = newDir;
+			}
 		});
 	});
 	var update = function(){
