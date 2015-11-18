@@ -1,6 +1,0 @@
-leaderboard
-Yhack@2015
-
-ftp:
-snakescape
-Yhack@2015
